@@ -1,6 +1,6 @@
 project:
   type: manuscript
-  output-dir: _output
+  output-dir: .           # Render to the repo root instead of _output
   resources:
     - "_*.qmd"
 
@@ -9,6 +9,7 @@ manuscript:
 
 format: 
   html:
+    output-file: index    # Render as index.html
     theme:
       light: lightly
       dark: darkly
