@@ -4,13 +4,13 @@ To assess whether regional patterns exist in ocean nitrate levels and human acti
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="elbow_plot.png" title="Figure 1" class="img-fluid rounded z-depth-1" %}
+        ![](elbow_plot.png){fig-cap="Figure 1" fig-alt="Elbow plot" class="img-fluid rounded z-depth-1"}
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="clustering_map.png" title="Figure 2" class="img-fluid rounded z-depth-1" %}
+        ![](clustering_map.png){fig-cap="Figure 2" fig-alt="" class="img-fluid rounded z-depth-1"}
     </div>
 </div>
 
@@ -35,7 +35,7 @@ While this is statistically significant with a $p$-value less than 0.05, the $R^
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="linear_model.png" title="Figure 3" class="img-fluid rounded z-depth-1" %}
+        ![](linear_model.png){fig-cap="Figure 3" fig-alt="" class="img-fluid rounded z-depth-1"}
     </div>
 </div>
 
