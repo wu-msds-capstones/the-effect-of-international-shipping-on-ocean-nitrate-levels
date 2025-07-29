@@ -1,6 +1,5 @@
 ---
 title: "The Effect of International Shipping on Ocean Nitrate Levels"
-subtitle: 
 authors:
   - Nathan Butler
   - Jeffrey Smith
