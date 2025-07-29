@@ -1,9 +1,9 @@
 ---
-title: "Capstone Project"
-subtitle: Subtitle
+title: "The Effect of International Shipping on Ocean Nitrate Levels"
+subtitle: 
 authors:
-  - Bob
-  - Jane
+  - Nathan Butler
+  - Jeffrey Smith
 bibliography: references.bib
 title-block-banner: true
 format: 
