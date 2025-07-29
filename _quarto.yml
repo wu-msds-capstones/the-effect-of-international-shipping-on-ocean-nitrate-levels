@@ -1,6 +1,6 @@
 project:
   type: manuscript
-  output-dir: .
+  output-dir: .          
   resources:
     - "_*.qmd"
 
@@ -9,7 +9,7 @@ manuscript:
 
 format: 
   html:
-    output-file: index    # Render as index.html
+    output-file: index    
     theme:
       light: lightly
       dark: darkly
