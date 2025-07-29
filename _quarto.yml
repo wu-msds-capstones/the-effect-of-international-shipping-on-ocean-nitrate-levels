@@ -1,6 +1,6 @@
 project:
   type: manuscript
-  output-dir: .           # Render to the repo root instead of _output
+  output-dir: .
   resources:
     - "_*.qmd"
 
