@@ -16,20 +16,20 @@ To assess whether regional patterns exist in ocean nitrate levels and human acti
 
 To test whether shipping density categories are independent of nitrate concentration, we used a chi-square test on the contingency table of shipping and nitrate categories. The result showed a highly significant association:
 
-$$
-\text{Chi-square Statistic}: 212.997  \\
-p-\text{value}: 5.60 \times 10^{-47} \\
-\text{Degrees of Freedom}: 2
-$$
+
+Chi-square Statistic: 212.997  
+$p$-value: $5.60 \times 10^{-47} $
+Degrees of Freedom: 2
+
 
 This means that areas with higher shipping density are significantly more likely to fall into higher nitrate categories, suggesting a non-random relationship between human maritime activity and nutrient levels in surrounding waters.
 
 To directly measure the relationship between shipping activity and nitrate concentration, we ran a log-log regression using Atlantic Ocean data. Both nitrate values and shipping densities were log-transformed to reduce skew and better meet linearity assumptions. The results were statistically significant:
 
-$$
-log(\text{nitrate}) = 1.97 + 0.019 \times log(\text{shipping})  \\
-R^2 = 0.078, p < 0.001
-$$
+
+log(nitrate) = 1.97 + 0.019 $\times$ log(shipping) 
+$R^2 = 0.078$, $p < 0.001$
+
 
 While this is statistically significant with a $p$-value less than 0.05, the $R^2$ indicates that very little of the variability in nitrate concentration is caused by shipping. These effects are consistent and regions with higher shipping do tend to have higher levels of nitrate. In (Figure 3) we plot the regression model to find: 
 
