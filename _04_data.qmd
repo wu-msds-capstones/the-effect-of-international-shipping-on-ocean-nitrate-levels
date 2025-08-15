@@ -6,7 +6,7 @@ Shipping density data was downloaded from the World Bank Group. This data consis
 
 Chlorophyll a concentration data was downloaded from NASA’s OceanColor database using a programmatic query to the OceanData API. Specifically, the request targeted Aqua MODIS Level 3 chlorophyll a (otherwise known as a-chlorophyll) data, monthly composite, at a 9 km resolution, spanning from July 2002 to March 2025. As chlorophyll a is the form of chlorophyll used in photosynthesis, chlorophyll a levels can be used as a proxy for phytoplankton health and abundance. The raw .nc files were processed using xarray and pandas in Python to extract spatially gridded chlorophyll a values along with the corresponding latitude, longitude, year, and month. For each time step, the grid was averaged at a 0.01 degrees resolution to reduce data size. Final data was saved to year-specific .csv files for easy integration into downstream analysis pipelines and uploaded to a PostgreSQL database for access by mapping and modeling workflows. The chlorophyll a data was cleaned to remove extreme outliers and negative values (which are physically implausible). Data north of 85° and south of -85° latitude are missing due to satellite orbital limits and coverage. This table was uploaded to the online Postgres database on Railway.
 
-In Railway, the data is contained in the following tables.
+In Railway, the data is contained in the following schema, as shown below in the entity relationship diagram.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
