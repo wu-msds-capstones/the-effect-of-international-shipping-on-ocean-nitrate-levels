@@ -1,9 +1,11 @@
+
+
 project:
   type: manuscript
   output-dir: .          
   resources:
     - "_*.qmd"
-
+bibliography: references.bib
 manuscript:
   article: capstone.qmd
 
@@ -13,4 +15,4 @@ format:
     theme:
       light: lightly
       dark: darkly
-bibliography: references.bib
+
