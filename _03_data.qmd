@@ -8,8 +8,6 @@ Chlorophyll a concentration data was downloaded from NASA’s OceanColor databas
 
 In Railway, the data is contained in the following schema, as shown below in the entity relationship diagram. The data from WOD is stored in the tables `nitrate` and `plankton`, which are both keyed to tables `coords`, `time`, `casts`, and `units`. In addition, the `plankton` table is also keyed to the `measurement`, `wod_pgc` (WOD plankton grouping code), and `its_tsn` (genus) tables. The shipping density data from the World Bank Group was placed in the `denseboats` table and is keyed to the `coords` table. Finally, the data from NASA's OceanColor database is stored in the `chloro-a` table and is keyed to the `coords` and `time` table.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+
         ![](capstone-erd.png){fig-cap="Entity Relationship Diagram" fig-alt="Elbow plot" class="img-fluid rounded z-depth-1"}
-    </div>
-</div>
+
