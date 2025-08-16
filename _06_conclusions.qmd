@@ -4,6 +4,6 @@ While some of the results above suggested possible statistical significance, it 
 
 # Conclusion
 
-In this study we fail to provide solid evidence that international shipping activity is associated with elevated nitrate levels in the ocean. Our combinations of clustering, chi-square, random forest, and linear regression analyses revealed that while there may be some correlation between shipping density and nitrate levels, shipping density is not the dominant predictor in terms of understanding the nitrate concentration in the ocean. 
+In this study we fail to provide solid evidence that international shipping activity is consistently associated with elevated nitrate levels in the ocean. Our combinations of clustering, chi-square, random forest, and linear regression analyses revealed that while there may be some correlation between shipping density and nitrate levels, shipping density is not the dominant predictor in terms of understanding the nitrate concentration in the ocean. 
 
 Future work could include utilizing sea level atmospheric concentrations of nitrogen oxides to better understand the rate of dissolution. Higher granular temporal and spatial data of the positions of trade ships can be used to show potential changes in ocean chemistry and the resulting impact on marine life.
