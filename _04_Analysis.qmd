@@ -17,33 +17,25 @@ The goal of clustering is to split the study region into regional groups that ma
 We chose the number of clusters by looking for the elbow in the within-cluster sum of squares for k = 2–9. The curve falls quickly through k=4 and then flattens; the elbow is around five. Figure 1 shows this and marks k=5 with a dashed line. Five clusters avoid both extremes: too few would lump shelves, lanes, and gyres; too many would split coherent regions into tiny pieces. With k set to five, we fit K-means and assign the labels back to each observation for mapping and analysis.
 
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        ![](best elbow with cap.png){fig-cap="Figure(1): We use the Kneed library to automatically find the elbow point in the inertia plot. The best k is determined to be 5." fig-alt="Elbow plot with optimal cluster count" class="img-fluid rounded z-depth-1"}
-    </div>
-</div>
+
+![](best elbow with cap.png){fig-cap="Figure(1): We use the Kneed library to automatically find the elbow point in the inertia plot. The best k is determined to be 5." fig-alt="Elbow plot with optimal cluster count" class="img-fluid rounded z-depth-1"}
+
 
 Figures 2 and 3 show the spatial structure at two levels. Figure 2 plots all clustered observations in the Atlantic bounding box, colored by label. The narrow streaks across the North Atlantic appear because of how the shipping data were joined to the nitrate data; the nitrate sampling follows that pattern, so when merged, the lines show up. Because overlap can hide boundaries on one composite map, Figure 3 splits the view into five small panels, one per cluster. The footprints then become clear: a shelf group around the UK/Ireland; a broad subtropical belt from the Caribbean to West Africa; a coastal group along the Iberian/Portuguese margins and Bay of Biscay with extensions toward the Channel; a trans-Atlantic corridor around 40–55° N; and a 
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        ![](best cluster with thing.png){fig-cap="Figure(2): Clustered Observation Points within the Atlantic bounding box showing all 5 clusters 0–4 separated by color." fig-alt="Clustered observation points map" class="img-fluid rounded z-depth-1"}
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        ![](mapped sepeerelty.png){fig-cap="Figure(3): Shows each cluster separated to make it easier to see where each cluster is localized." fig-alt="Separated cluster maps" class="img-fluid rounded z-depth-1"}
-    </div>
-</div>
+![](best cluster with thing.png){fig-cap="Figure(2): Clustered Observation Points within the Atlantic bounding box showing all 5 clusters 0–4 separated by color." fig-alt="Clustered observation points map" class="img-fluid rounded z-depth-1"}
+
+
+
+![](mapped sepeerelty.png){fig-cap="Figure(3): Shows each cluster separated to make it easier to see where each cluster is localized." fig-alt="Separated cluster maps" class="img-fluid rounded z-depth-1"}
+
 
 The distribution of shipping across groups confirms that the algorithm is separating meaningfully different environments, not just carving up space. Figure 4 shows boxplots of shipping density by cluster. The channel node and Iberian-coast group have the highest centers and widest spreads, consistent with busy port approaches and coastal arcs. The trans-Atlantic lane group has a spiky distribution of many near zero cells with very high values along the routes which appear as outliers. The shelf and subtropical groups are mostly low-traffic, though the shelf has occasional spikes near passages. These contrasts justify using the cluster labels as groups for the statistics that follow.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        ![](shipping density by cluster.png){fig-cap="Figure(4): Boxplot of shipping_density by Cluster." fig-alt="Boxplot showing shipping density distributions per cluster" class="img-fluid rounded z-depth-1"}
-    </div>
-</div>
+
+![](shipping density by cluster.png){fig-cap="Figure(4): Boxplot of shipping_density by Cluster." fig-alt="Boxplot showing shipping density distributions per cluster" class="img-fluid rounded z-depth-1"}
+
 
 Having stratified the data, we examined whether shipping density is associated with nitrate within each cluster. For each cluster we fit a bivariate ordinary least squares regression of nitrate on log(1 + shipping density), adding a constant term and estimating HC3 robust standard errors to account for heteroskedastic. The log transform compresses extreme density values and renders the slope interpretable as the expected change in nitrate for a one unit change in the transformed density. To aid legibility on the plots, we sampled at most 150,000 points per cluster for the scatter layer while fitting the line to the full set of available observations. Figure 5 (shown in the Results section) displays the five panels with the fitted lines superimposed. The method is intentionally simple: because the clusters already align observations by geography, coastal proximity, and broad productivity context, a within‑cluster trend provides a clean first check for association without yet attributing causality.
 Two notes help with interpretation. First, including coordinates ensures spatial coherence but can bias clustering toward geography; standardizing helps, and the maps make the trade-off clear. Second, zero imputation preserves rows but can pull distances toward the origin when data are sparse; distribution checks and the within-cluster approach help reveal artifacts, and we plan robustness checks (e.g., silhouette/Davies–Bouldin in an appendix; median regression and light winsorization) to confirm stability. We therefore treat results here as descriptive and conditional on the group.
