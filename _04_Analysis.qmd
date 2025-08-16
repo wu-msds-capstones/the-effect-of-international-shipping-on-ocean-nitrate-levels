@@ -1,24 +1,51 @@
-# Methods
+# Analysis
 
-## Clustering
-To identify regions of the ocean with similar environmental profiles, we performed unsupervised clustering using the K-means algorithm. This method grouped ocean observation points based on a combination of spatial and environmental variables: latitude, longitude, nitrate concentration, plankton abundance, chlorophyll levels, shipping density, and distance from the nearest coastline.
-Prior to clustering, chlorophyll values were averaged at a 0.01° grid resolution and merged with the nitrate and plankton data from the World Ocean Database. Shipping density values were extracted at each point location from a raster image provided by the World Bank Group. A shapefile of global coastlines was used to compute the Euclidean distance of each observation from land using a spatial index (STRtree). All datasets were merged into a single data frame and any missing values were filled with zeroes before clustering.
-To ensure comparability between variables with different scales and units, we applied z-score standardization to each feature. We used the elbow method to determine the optimal number of clusters, plotting the within-cluster sum of squares (inertia) across values of k from 2 to 15. The kneed package was used to automatically detect the inflection point of this curve. Based on the elbow method, we selected k=4 as the optimal number of clusters.
-We then trained a K-means model with four clusters and assigned each ocean observation to one of the clusters. The resulting clusters were visualized globally and separately using Cartopy, which revealed geographic groupings that reflect underlying environmental similarities. These cluster assignments were used in subsequent statistical analysis (e.g., chi-square tests, ANOVA) to examine how nitrate and phytoplankton levels vary across shipping intensities within similar ecological zones.
+Preliminary association (chi-square test). Before clustering, we asked a simple question: are nitrate levels independent of shipping intensity when both are binned? Using the full dataset, shipping density and nitrate were each split into three tertiles (below the 33rd percentile = “Low,” 33rd–66th = “Average,” above the 66th = “High”). We then built a contingency table of shipping category by nitrate category and ran Pearson’s chi-square test of independence. The table (Figure 0) shows clear deviations from independence; the test statistic is χ² ≈ 46,579 with 2 degrees of freedom and p < 0.001, so we reject the null of no association. Given the very large sample, the related Cramér’s V is modest (≈ 0.083). In other words, there is an association, but it is small; this motivates the more detailed, context-aware work that follows.
 
-## Chi Square
-Before applying regression models, we first wanted to establish whether there was a statistically significant association between shipping density and nitrate levels. To do this, we performed a chi-square test of independence using data limited to the Atlantic Ocean, where sampling density was highest and regional patterns were most coherent.
-We began by categorizing each observation point into “Low,” “Average,” or “High” shipping density based on standard deviation cutoffs from the mean. A similar categorization was applied to nitrate concentrations using the same logic. This resulted in a contingency table showing the frequency of each nitrate level within each shipping category.
-We then conducted a chi-square test on the resulting 3×3 contingency table. This test allowed us to assess whether nitrate concentrations were independent of shipping density across the Atlantic sample. The chi-square statistic, p-value, and expected counts were recorded and used to evaluate whether observed patterns were likely due to chance. A significant result here served as preliminary evidence that shipping activity and nitrate levels are related, providing justification for a more detailed investigation using linear modeling.
+::: {.table caption="Figure 0. Contingency table of shipping density category (columns) by nitrate category (rows), using tertiles."}
 
-## ANOVA
-To further explore how nitrate levels vary across different environmental zones, we conducted a one-way analysis of variance (ANOVA) using the cluster assignments generated from the K-means analysis. The goal was to determine whether the mean nitrate concentrations differed significantly between the four clusters identified in the Atlantic Ocean region.
-We first filtered the dataset to the Atlantic bounding box to maintain consistency with previous analyses. Observations with missing nitrate values or undefined cluster assignments were excluded. The remaining data were then grouped by cluster, and nitrate values were extracted for each group.
-Using the scipy.stats.f_oneway() function, we performed an ANOVA test comparing nitrate concentrations across the four clusters. This test allowed us to assess whether the differences in mean nitrate levels between the clusters were greater than would be expected by chance alone. The resulting F-statistic and p-value were used to evaluate statistical significance.
-This approach complements the chi-square analysis by treating nitrate as a continuous variable rather than a categorical one, enabling a more granular assessment of nitrate distribution patterns across distinct environmental zones.
+|                  | Average(Shipping) | High(Shipping) |
+| ---------------- | ----------------- | -------------- |
+| Low(Nitrate)     | 1,373,201         | 866,064        |
+| Average(Nitrate) | 1,507,337         | 741,862        |
+| High(Nitrate)    | 1,637,656         | 674,536        |
 
-## Linear Regression
-Following the chi-square and ANOVA analyses, we applied a linear regression model to assess the strength and nature of the relationship between shipping density and nitrate levels. While the chi-square test established a categorical association and the ANOVA revealed differences across clusters, regression allowed us to quantify the relationship between these two continuous variables.
-We focused this analysis on observations from the Atlantic Ocean, where data coverage was densest. To reduce skewness and address heteroscedasticity in the raw data, we applied a log transformation to both the nitrate concentration and shipping density variables. A small constant (+1) was added to each value prior to transformation to avoid taking the logarithm of zero.
-An ordinary least squares (OLS) regression was performed using log-transformed shipping density as the independent variable and log-transformed nitrate concentration as the dependent variable. We used the statsmodels package to fit the model and generate diagnostic statistics including the regression coefficient, R-squared value, and p-value. A scatterplot with the regression line was created to visually confirm the linear relationship and assess model fit.
-This regression helped verify that shipping density is a significant predictor of nitrate levels even after accounting for spatial variation, and provided insight into the direction and magnitude of that effect.
+:::
+
+The goal of clustering is to split the study region into regional groups that make sense for both location and environment. That way, later comparisons are “like with like,” instead of mixing very different ocean settings. We cluster on six variables latitude, longitude, nitrate, distance to the nearest coast (km), chlorophyll-a, and shipping density after standardizing each to z-scores so differences in units and variance don’t let any one feature dominate the Euclidean distance that K-means uses. A small share of rows had missing inputs (often chlorophyll-a at high latitudes); to avoid dropping them, we imputed zeros and then checked plots and maps to make sure this did not create fake separation. Because latitude and longitude are included, the clusters should be read as place and environment groups, not purely chemical groups. This choice makes maps easy to read, but we are careful with casual language later.
+
+We chose the number of clusters by looking for the elbow in the within-cluster sum of squares for k = 2–9. The curve falls quickly through k=4 and then flattens; the elbow is around five. Figure 1 shows this and marks k=5 with a dashed line. Five clusters avoid both extremes: too few would lump shelves, lanes, and gyres; too many would split coherent regions into tiny pieces. With k set to five, we fit K-means and assign the labels back to each observation for mapping and analysis.
+
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        ![](best elbow with cap.png){fig-cap="Figure(1): We use the Kneed library to automatically find the elbow point in the inertia plot. The best k is determined to be 5." fig-alt="Elbow plot with optimal cluster count" class="img-fluid rounded z-depth-1"}
+    </div>
+</div>
+
+Figures 2 and 3 show the spatial structure at two levels. Figure 2 plots all clustered observations in the Atlantic bounding box, colored by label. The narrow streaks across the North Atlantic appear because of how the shipping data were joined to the nitrate data; the nitrate sampling follows that pattern, so when merged, the lines show up. Because overlap can hide boundaries on one composite map, Figure 3 splits the view into five small panels, one per cluster. The footprints then become clear: a shelf group around the UK/Ireland; a broad subtropical belt from the Caribbean to West Africa; a coastal group along the Iberian/Portuguese margins and Bay of Biscay with extensions toward the Channel; a trans-Atlantic corridor around 40–55° N; and a 
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        ![](best cluster with thing.png){fig-cap="Figure(2): Clustered Observation Points within the Atlantic bounding box showing all 5 clusters 0–4 separated by color." fig-alt="Clustered observation points map" class="img-fluid rounded z-depth-1"}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        ![](mapped sepeerelty.png){fig-cap="Figure(3): Shows each cluster separated to make it easier to see where each cluster is localized." fig-alt="Separated cluster maps" class="img-fluid rounded z-depth-1"}
+    </div>
+</div>
+
+The distribution of shipping across groups confirms that the algorithm is separating meaningfully different environments, not just carving up space. Figure 4 shows boxplots of shipping density by cluster. The channel node and Iberian-coast group have the highest centers and widest spreads, consistent with busy port approaches and coastal arcs. The trans-Atlantic lane group has a spiky distribution of many near zero cells with very high values along the routes which appear as outliers. The shelf and subtropical groups are mostly low-traffic, though the shelf has occasional spikes near passages. These contrasts justify using the cluster labels as groups for the statistics that follow.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        ![](shipping density by cluster.png){fig-cap="Figure(4): Boxplot of shipping_density by Cluster." fig-alt="Boxplot showing shipping density distributions per cluster" class="img-fluid rounded z-depth-1"}
+    </div>
+</div>
+
+Having stratified the data, we examined whether shipping density is associated with nitrate within each cluster. For each cluster we fit a bivariate ordinary least squares regression of nitrate on log(1 + shipping density), adding a constant term and estimating HC3 robust standard errors to account for heteroskedastic. The log transform compresses extreme density values and renders the slope interpretable as the expected change in nitrate for a one unit change in the transformed density. To aid legibility on the plots, we sampled at most 150,000 points per cluster for the scatter layer while fitting the line to the full set of available observations. Figure 5 (shown in the Results section) displays the five panels with the fitted lines superimposed. The method is intentionally simple: because the clusters already align observations by geography, coastal proximity, and broad productivity context, a within‑cluster trend provides a clean first check for association without yet attributing causality.
+Two notes help with interpretation. First, including coordinates ensures spatial coherence but can bias clustering toward geography; standardizing helps, and the maps make the trade-off clear. Second, zero imputation preserves rows but can pull distances toward the origin when data are sparse; distribution checks and the within-cluster approach help reveal artifacts, and we plan robustness checks (e.g., silhouette/Davies–Bouldin in an appendix; median regression and light winsorization) to confirm stability. We therefore treat results here as descriptive and conditional on the group.
+
+Having established a linear baseline, we also fit cluster‑specific random forests to allow for non‑linear and interaction effects between shipping, productivity, distance from land, and geography. Within each cluster we trained a RandomForestRegressor using the feature set log shipping density, chlorophyll‑a, distance to coast, latitude, longitude. Performance was summarized by five‑fold cross‑validated R² and interpretation relied on two complementary diagnostics: permutation importance (mean drop in R² when a feature is shuffled) and partial dependence of nitrate on log‑shipping holding other features at their empirical distribution. Figures 6 and 7 (presented in the Results section) summarize these diagnostics for all five clusters. Because spatial autocorrelation can inflate nominal cross‑validation in geophysical data, we treat R² values as descriptive of in‑sample predictability rather than as out‑of‑sample guarantees; our focus is on the relative importance of features and the shape of the shipping nitrate relationship by cluster.
