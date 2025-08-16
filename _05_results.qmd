@@ -1,53 +1,37 @@
 # Results
 
-To assess whether regional patterns exist in ocean nitrate levels and human activity, we first applied K-means clustering to the dataset. Based on the Elbow Method (see Figure 1), we selected four clusters that best captured variance in shipping density, nitrate concentrations, and distance from shore. When mapped spatially (see Figure 2), these clusters aligned with recognizable oceanographic patterns: Cluster 1 concentrated along dense shipping lanes in the North Atlantic and Mediterranean, Cluster 3 near highly trafficked coasts, Cluster 2 in less-trafficked open ocean, and Cluster 0 spread broadly across lower-traffic southern regions.
+The five cluster solution forms groups that are spatially clear and ecologically reasonable, and the figures support this. On the composite map (Figure 2) the subtropical belt appears as a broad band across low to mid latitudes, where oligotrophic conditions and low chronic traffic are common. The channel node in the northeast Atlantic is small in area but very dense, reflecting several major approaches. The Iberian coastal group connects that node to the Western European coast and matches productive waters affected by upwelling and rivers. The trans-Atlantic lanes form long, narrow arcs, which explains the spiky shipping distribution in Figure 4. Seen separately in Figure 3, each panel shows the groups are not arbitrary: they match major spatial patterns one would expect from traffic, productivity, and distance to land.
+
+The boxplots in Figure 4 quantify these visual impressions. Median shipping density is lowest in the subtropical belt and highest in the Iberian coastal and channel‑node clusters, with the channel clusters showing a large interquartile range and high upper whiskers indicative of strongly right‑skewed traffic. The trans‑Atlantic lanes show low medians but a long right tail, again reflecting the geometry of corridor traffic. The shelf cluster sits between these cases, predominantly quiet but punctuated by spikes near passages and port approaches. By presenting these distributions alongside the maps we substantiate that the clusters organize the data by meaningful differences in human activity rather than by geography alone.
+
+Within these groups, the regression panels in Figure 5 reveal weak but interpretable associations between shipping density and nitrate. In the Iberian coastal (cluster 2) the fitted slope is positive and comparatively large: an increase of one unit in log(1 + shipping density) is associated with an average increase of roughly 27.4 units of nitrate. Although the model explains only about thirteen percent of that clusters variance, this is the clearest positive relationship in the analysis and is consistent with a setting where coastal inputs and productivity are higher and where traffic is both sustained and variable. The shelf cluster around the United Kingdom and Ireland (cluster 0) shows a shallow positive slope on the order of 0.36 with an R² around 0.05; the cloud of points is dominated by low nitrate values with a modest upward tilt across the transformed density range. The trans‑Atlantic lane (cluster 3) yields an even smaller positive slope, approximately 0.17, and an R² near 0.02. Here the mixture of many near‑zero cells with intermittent high‑traffic streaks produces a thin band of points around the fitted line and very limited explanatory power.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        ![](elbow_plot.png){fig-cap="Figure 1" fig-alt="Elbow plot" class="img-fluid rounded z-depth-1"}
+        ![](best linear per cluster with better cap.png){fig-cap="Figure(5): Nitrate vs. log(1+shipping density) by cluster with OLS (HC3) trend lines. Associations are weak overall; the clearest positive slope is in Cluster 2." fig-alt="Scatter plots and linear regression fits per cluster" class="img-fluid rounded z-depth-1"}
     </div>
 </div>
+
+Two clusters exhibit negative slopes. In the channel‑node (cluster 4) the fitted line is downward‑sloping with a magnitude of roughly −4.83 and an R² around 0.11. The panel contains extreme nitrate values at low‑to‑moderate traffic and a compressed band at high traffic; because ordinary least squares is sensitive to tail behavior, this pattern likely contributes to the negative coefficient. We therefore interpret the sign cautiously and plan robustness checks using median regression or a lightly winsorized OLS fit to evaluate sensitivity to outliers. In the subtropical open ocean (cluster 1), where nitrate is characteristically scarce, the fitted slope is slightly negative (about −0.045) and the model explains effectively none of the variation. This is unsurprising given the low variance of nitrate in oligotrophic waters and suggests that shipping density, by itself, does not capture the processes that drive nitrate variability in that cluster.
+
+Together, Figures 1–5 tell a coherent story from model choice to interpretation. The elbow plot supports five clusters; the maps show why the solution makes sense; the shipping distributions verify that groups differ in a way that matters; and the within-group lines show that the direction and size of shipping–nitrate links depend on setting and are usually modest. This fits an ocean system where nitrate depends on many drivers, circulation, seasonality, land inputs, productivity with shipping playing a role in some places but rarely dominating. Ethically, that means unsupervised clusters and simple bivariate lines are tools for exploration, not causal proof. We therefore state modeling choices clearly, pair claims with figures the reader can check, and limit conclusions to what the evidence supports.
+
+The random‑forest diagnostics reinforce and nuance the linear findings. Cross‑validated R² differs by regime: predictability is highest in the subtropical belt and the trans‑Atlantic lanes (titles in Figure 6 report values near 0.98 and 0.99, respectively), moderate on the shelf and Iberian coast (around 0.57 and 0.63), and lowest in the channel‑node (about 0.52). This pattern is consistent with the maps: the subtropical and corridor regimes are geographically tight and relatively homogeneous once latitude/longitude are available, whereas the channel‑node mixes multiple local processes in a small area.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        ![](clustering_map.png){fig-cap="Figure 2" fig-alt="" class="img-fluid rounded z-depth-1"}
+        ![](permuatation importance.png){fig-cap="Figure(6): Permutation importance by cluster (RF): spatial features longitude, latitude, and distance from land dominate; shipping density is secondary." fig-alt="Random forest permutation importance plots" class="img-fluid rounded z-depth-1"}
     </div>
 </div>
 
-To test whether shipping density categories are independent of nitrate concentration, we used a chi-square test on the contingency table of shipping and nitrate categories. The result showed a highly significant association:
-
-
-Chi-square Statistic: 212.997  
-$p$-value: $5.60 \times 10^{-47} $
-Degrees of Freedom: 2
-
-
-This means that areas with higher shipping density are significantly more likely to fall into higher nitrate categories, suggesting a non-random relationship between human maritime activity and nutrient levels in surrounding waters.
-
-To directly measure the relationship between shipping activity and nitrate concentration, we ran a log-log regression using Atlantic Ocean data. Both nitrate values and shipping densities were log-transformed to reduce skew and better meet linearity assumptions. The results were statistically significant:
-
-
-log(nitrate) = 1.97 + 0.019 $\times$ log(shipping) 
-$R^2 = 0.078$, $p < 0.001$
-
-
-While this is statistically significant with a $p$-value less than 0.05, the $R^2$ indicates that very little of the variability in nitrate concentration is caused by shipping. These effects are consistent and regions with higher shipping do tend to have higher levels of nitrate. In (Figure 3) we plot the regression model to find: 
+Permutation importance (Figure 6) shows a clear hierarchy across clusters. Longitude, latitude, and distance from land dominate predictive power in every regime, underlining the extent to which nitrate varies with geography and coastal proximity. Shipping density contributes second‑order information non negligible but well below the spatial terms and chlorophyll‑a is comparatively minor in these fits. The relative contribution of shipping is largest in the Iberian coastal and channel‑node regimes and smallest in the subtropical belt, which is consistent with the very low nitrate variance observed there. Because importance is defined as the drop in cross validated R² when a feature is permuted, these bars quantify the incremental value of shipping conditional on geography and distance to coast.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        ![](linear_model.png){fig-cap="Figure 3" fig-alt="" class="img-fluid rounded z-depth-1"}
+        ![](pdp nitrate vs log shipping.png){fig-cap="Figure(7): Mild positive trend in Cluster 0 and Cluster 3, near-flat in Cluster 1, sharp rise at high values in Cluster 2, and non-monotonic in Cluster 4." fig-alt="Partial dependence plots by cluster" class="img-fluid rounded z-depth-1"}
     </div>
 </div>
 
-To test whether nitrate levels differ meaningfully across the environmental clusters we identified, we used a one-way ANOVA. This method evaluates whether the mean nitrate concentration is equal across the four cluster groups. We restricted the analysis to points located in the Atlantic Ocean region and filtered for rows with valid nitrate and cluster values. This test yielded a very large $F$-statistic (38344.40) and a $p$-value effectively equal to zero, strongly indicating that average nitrate levels vary significantly across clusters:
+Partial‑dependence curves (Figure 7) describe how predicted nitrate changes with log‑shipping within each regime after marginalizing over other features. The shelf and trans Atlantic lane regimes exhibit gently increasing relationships: nitrate rises slightly as log‑shipping increases across the observed range. The subtropical belt is essentially flat, confirming the lack of explanatory power seen in the OLS panel. The Iberian coastal regime shows a pronounced rise at the upper end of log‑shipping, indicating that the association strengthens only at the highest densities; the tick marks on the x‑axis make clear that data are sparser in this extreme, so we interpret the slope there with caution. The channel‑node displays a non‑monotonic pattern declining from low to mid values and then turning upward near the extreme right tail mirroring the mixture of very high and very low nitrate values seen in the scatter. Taken together, the forests replicate the directional signals from the linear fits (positive in clusters 0, 2, and 3; flat in 1; complex in 4) while revealing non‑linearities that an OLS slope averages away.
 
-ANOVA Results (nitrate_value $\sim$ cluster):
-$F$ statistic: 38344.3988
-$p$-value: 0.0000e+00
-
-Cluster 0: 12,866 observations  
-Cluster 1:  1,286 observations  
-Cluster 2: 12,802 observations  
-Cluster 3:  9,362 observations  
-
-These results confirm that the clustering process successfully captured distinct nitrate regions. The high between-group variance relative to within-group variance suggests the clusters represent some change caused by humans.
+Method wise, Figures 5–7 work well together. The OLS slopes give clear effect sizes on the transformed scale and robust intervals; the forests show that even after strong spatial structure is accounted for, shipping still adds some predictive signal and that the marginal effect can be thresholded or non monotonic depending on setting. This supports our main point: the shipping–nitrate link is context dependent and, when present, small compared with geography.
