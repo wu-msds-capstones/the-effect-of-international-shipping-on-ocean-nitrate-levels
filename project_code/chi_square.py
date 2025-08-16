@@ -3,11 +3,6 @@ from scipy.stats import chi2_contingency
 
 
 df = pd.read_csv("clustered_output_with_distance.csv")
-min_lon, max_lon = -82.2484, 4.3238
-min_lat, max_lat = 13.7150, 60.1331
-df = df[
-    (df["longitude"] >= min_lon) & (df["longitude"] <= max_lon) &
-    (df["latitude"] >= min_lat) & (df["latitude"] <= max_lat)]
 low_thresh = df["shipping_density"].quantile(0.33)
 high_thresh = df["shipping_density"].quantile(0.66)
 def categorize_shipping(val):
@@ -33,6 +28,8 @@ def categorize_nitrate(val):
 
 df["nitrate_cat"] = df["nitrate_value"].apply(categorize_nitrate)
 contingency = pd.crosstab(df['shipping_cat'], df['nitrate_cat'])
+print("Contingency Table (Counts):\n", contingency, "\n")
+
 chi2, p, dof, expected = chi2_contingency(contingency)
 print("Contingency Table:\n", contingency)
 print("\nChi-square Statistic:", chi2)
