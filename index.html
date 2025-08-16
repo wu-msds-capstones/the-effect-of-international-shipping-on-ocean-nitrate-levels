@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The Effect of International Shipping on Ocean Nitrate Levels</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+
+
+<meta name="citation_title" content="The Effect of International Shipping on Ocean Nitrate Levels">
+<meta name="citation_author" content="Nathan Butler">
+<meta name="citation_author" content="Jeffrey Smith">
+<meta name="citation_language" content="en">
+<meta name="citation_reference" content="citation_title=Particle emissions from ships: Dependence on fuel type;,citation_author=Hulda Winnes;,citation_author=Erik Fridell;,citation_publication_date=2009;,citation_cover_date=2009;,citation_year=2009;,citation_fulltext_html_url=https://doi.org/10.3155/1047-3289.59.12.1391;,citation_issue=12;,citation_doi=10.3155/1047-3289.59.12.1391;,citation_volume=59;,citation_journal_title=Journal of the Air &amp;amp;amp; Waste Management Association;,citation_publisher=Taylor &amp;amp; Francis;">
+<meta name="citation_reference" content="citation_title=Mitigation of ship emissions: Overview of recent trends;,citation_author=Ali-Akbar Sarbanha;,citation_author=Faı̈çal Larachi;,citation_author=Seyed-Mohammad Taghavi;,citation_author=Mareen Thiboutot-Rioux;,citation_author=Alexandre Boudreau;,citation_author=Gabriel Dugas;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://doi.org/10.1021/acs.iecr.2c03621;,citation_issue=4;,citation_doi=10.1021/acs.iecr.2c03621;,citation_volume=62;,citation_journal_title=Industrial &amp;amp;amp; Engineering Chemistry Research;">
+<meta name="citation_reference" content="citation_title=The impact of alternative fuels on ship engine emissions and aftertreatment systems: A review;,citation_abstract=Marine engines often use diesel as an alternative fuel to improve the economy. In recent years, waste oil, biodiesel and alcohol fuel are the most famous research directions among the alternative fuels for diesel. With the rapid development of the shipping industry, the air of coastal areas is becoming increasingly polluted. It is now necessary to reduce the emission of marine engines to meet the strict emission regulations. There are many types of alternative fuels for diesel oil and the difference of the fuel may interfere with the engine emissions; however, PM, HC, CO and other emissions will have a negative impact on SCR catalyst. This paper reviews the alternative fuels such as alcohols, waste oils, biodiesel made from vegetable oil and animal oil, and then summarizes and analyzes the influence of different alternative fuels on engine emissions and pollutant formation mechanism. In addition, this paper also summarizes the methods that can effectively reduce the emissions of marine engines; it can provide a reference for the study of diesel alternative fuel and the reduction of marine engine emissions.;,citation_author=Shuo Feng;,citation_author=Shirui Xu;,citation_author=Peng Yuan;,citation_author=Yuye Xing;,citation_author=Boxiong Shen;,citation_author=Zhaoming Li;,citation_author=Chenguang Zhang;,citation_author=Xiaoqi Wang;,citation_author=Zhuozhi Wang;,citation_author=Jiao Ma;,citation_author=Wenwen Kong;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://www.mdpi.com/2073-4344/12/2/138;,citation_issue=2;,citation_doi=10.3390/catal12020138;,citation_issn=2073-4344;,citation_volume=12;,citation_journal_title=Catalysts;">
+<meta name="citation_reference" content="citation_title=Transition to near-zero emission shipping fleet powered by alternative fuels under uncertainty;,citation_abstract=Achieving a transition to a near-zero emission shipping requires deploying ships which are powered by low- or zero-carbon alternative fuels. This study delivers a transition plan for the fleet, including the selection of fuel type (among diesel, bio-LNG, bio-methanol and ng-ammonia) for each ship, and determining the number and sizes of ships to add or remove from the fleet in each time period through ship purchasing, chartering and retrofitting, so as to operate the resulting fleet at minimum net cost considering emissions, investment and operating costs and revenues under uncertainty. Results indicate that a single fuel cannot dominate the future. The transition from diesel to bio-methanol is favourable when life-cycle (well-to-wake) emissions are considered, whereas transition from diesel to ng-ammonia dominates when tank-to-wake emissions are considered. In the scenarios where emission costs are high, total emissions are reduced primarily thanks to chartering and retrofitting depending on the ship size.;,citation_author=Yadong Wang;,citation_author=undefined Iris;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.sciencedirect.com/science/article/pii/S1361920925000999;,citation_doi=https://doi.org/10.1016/j.trd.2025.104689;,citation_issn=1361-9209;,citation_volume=142;,citation_journal_title=Transportation Research Part D: Transport and Environment;">
+<meta name="citation_reference" content="citation_title=Review of maritime transport;,citation_author=P. E. A. Stalker;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_doi=10.18356/9789210000970;,citation_publisher=United Nations Conference on Trade; Development;">
+<meta name="citation_reference" content="citation_title=4th IMO GHG study;,citation_author=Shinichi Jasper;,citation_author=S Zhang;,citation_author=P. Pereda;,citation_author=B. Comer;,citation_author=E. Hauerhof;,citation_author=W. Schim van der Loeff;,citation_author=T. Smith;,citation_author=Y. Zhang;,citation_author=H. Kosaka;,citation_author=M. Adachi;,citation_author=J.-M. Bonello;,citation_author=C. Galbraith;,citation_author=Z. Gong;,citation_author=K. Hirata;,citation_author=D. Hummels;,citation_author=A. Kleijn;,citation_author=D. S. Lee;,citation_author=Y. Liu;,citation_author=A. Lucchesi;,citation_author=X. Mao;,citation_author=E. Muraoka;,citation_author=L. Osipova;,citation_author=H. Qian;,citation_author=D. Rutherford;,citation_author=S. Suárez de la Fuente;,citation_author=H. Yuan;,citation_author=C. Velandia Perico;,citation_author=Libo Wu;,citation_author=D. Sun;,citation_author=D.-H. Yoo;,citation_author=H. Xing;,citation_publication_date=2020;,citation_cover_date=2020;,citation_year=2020;,citation_publisher=International Maritime Organization;">
+<meta name="citation_reference" content="citation_title=Transport impacts on atmosphere and climate: shipping;,citation_abstract=Emissions of exhaust gases and particles from oceangoing ships are a significant and growing contributor to the total emissions from the transportation sector. We present an assessment of the contribution of gaseous and particulate emissions from oceangoing shipping to anthropogenic emissions and air quality. We also assess the degradation in human health and climate change created by these emissions. Regulating ship emissions requires comprehensive knowledge of current fuel consumption and emissions, understanding of their impact on atmospheric composition and climate, and projections of potential future evolutions and mitigation options. Nearly 70;,citation_author=Veronika Eyring;,citation_author=Ivar S. A. Isaksen;,citation_author=Terje Berntsen;,citation_author=William J. Collins;,citation_author=James J. Corbett;,citation_author=Oyvind Endresen;,citation_author=Roy G. Grainger;,citation_author=Jana Moldanova;,citation_author=Hans Schlager;,citation_author=David S. Stevenson;,citation_publication_date=2010;,citation_cover_date=2010;,citation_year=2010;,citation_fulltext_html_url=https://www.sciencedirect.com/science/article/pii/S1352231009003379;,citation_issue=37;,citation_doi=https://doi.org/10.1016/j.atmosenv.2009.04.059;,citation_issn=1352-2310;,citation_volume=44;,citation_journal_title=Atmospheric Environment;">
+<meta name="citation_reference" content="citation_title=Ammonium, nitrate and phytoplankton interactions in a freshwater tidal estuarine zone: Potential effects of cultural eutrophication;,citation_abstract=Nitrate and ammonium are the most important nitrogen sources for phytoplankton growth. Differential utilization of inorganic nitrogenous compounds by phytoplankton has been observed and may have significant impacts on primary productivity at local scales. We used enrichment experiments with natural phytoplankton populations from the freshwater tidal zone of the Guadiana estuary, a coastal ecosystem increasingly subjected to anthropogenic influences, to study the effects of nitrate and ammonium on N-consumption and phytoplankton growth. In addition, we used combined additions of nitrate and ammonium to understand the inhibitory effect of ammonium over nitrate uptake. Ammonium concentrations in the freshwater tidal reaches of the Guadiana estuary throughout the sampling period were too low to exert an inhibitory effect on nitrate uptake or a toxic effect on phytoplankton growth. Nitrate was clearly the main nitrogen source for phytoplankton at the study site. Overall, nitrate seemed to become limiting at concentrations lower than 20 μM and N-limitation was particularly significant during summer. A trend of decreasing nitrate uptake with increasing ammonium concentrations and uptake suggested an overall preference for ammonium. However, preference for ammonium was group-specific, and it was observed mainly in green algae and cyanobacteria. In fact, cyanobacteria relied only on ammonium as their N-source. On the contrary, diatoms preferred nitrate, and did not respond to ammonium additions. The increasing eutrophication in the Guadiana estuary and particularly increased inputs of nitrogen as ammonium due to urban waste effluents may result in a shift in phytoplankton community composition, towards a dominance of cyanobacteria and green algae.;,citation_author=Rita B. Domingues;,citation_author=Ana B. Barbosa;,citation_author=Ulrich Sommer;,citation_author=Helena M. Galvão;,citation_publication_date=2011;,citation_cover_date=2011;,citation_year=2011;,citation_fulltext_html_url=https://doi.org/10.1007/s00027-011-0180-0;,citation_issue=3;,citation_doi=10.1007/s00027-011-0180-0;,citation_isbn=1420-9055;,citation_volume=73;,citation_journal_title=Aquatic Sciences;">
+<meta name="citation_reference" content="citation_title=Inorganic nitrogen uptake by marine picoplankton: Evidence for size partitioning;,citation_abstract=A series of size-fractionation experiments was carried out in coastal waters around Georges Bank and in the oligotrophic NW Atlantic to assess the relative importance of picoplankton (&amp;amp;amp;lt; 1 µm) to community nitrogen utilization and to determine if there is a partitioning of the form of nitrogen used (NO3− or NH4+) based on organism size. Results indicate that picoplankton nitrogen uptake was substantial in coastal and oceanic waters, averaging &amp;gt;30% of the combined nitrate and ammonium uptake by the intact communities; the picoplankton portion of total community N uptake increased offshore. Of the summed nitrate and ammonium used across all sizes, ammonium was favored disproportionately by the picoplankton fraction. On average, however, the differences in preference for nitrogen form were relatively small. The size partitioning of photosynthetic activity and nitrogen uptake was similar.;,citation_author=W. G. Harrison;,citation_author=Laura J. E. Wood;,citation_publication_date=1988;,citation_cover_date=1988;,citation_year=1988;,citation_fulltext_html_url=https://aslopubs.onlinelibrary.wiley.com/doi/abs/10.4319/lo.1988.33.3.0468;,citation_issue=3;,citation_doi=https://doi.org/10.4319/lo.1988.33.3.0468;,citation_volume=33;,citation_journal_title=Limnology and Oceanography;">
+<meta name="citation_reference" content="citation_title=Assessing the source of nitrate pollution in water using stable n and o isotopes;,citation_author=Barbara Deutsch;,citation_author=Petra Kahle;,citation_author=Maren Voss;,citation_publication_date=2006;,citation_cover_date=2006;,citation_year=2006;,citation_issue=4;,citation_volume=26;,citation_journal_title=Agronomy for Sustainable Development;">
+<meta name="citation_reference" content="citation_title=Identifying the major sources of nutrient water pollution;,citation_author=Larry J Puckett;,citation_publication_date=1995;,citation_cover_date=1995;,citation_year=1995;,citation_issue=9;,citation_volume=29;,citation_journal_title=Environmental Science &amp;amp;amp; Technology;,citation_publisher=ACS Publications;">
+<meta name="citation_reference" content="citation_title=Tracing nitrate pollution sources and transformation in surface-and ground-waters using environmental isotopes;,citation_author=Yan Zhang;,citation_author=Fadong Li;,citation_author=Qiuying Zhang;,citation_author=Jing Li;,citation_author=Qiang Liu;,citation_publication_date=2014;,citation_cover_date=2014;,citation_year=2014;,citation_volume=490;,citation_journal_title=Science of the total environment;,citation_publisher=Elsevier;">
+<meta name="citation_reference" content="citation_title=Exploring new technologies for plankton observations and monitoring of ocean health;,citation_author=Pascal I. Hablützel;,citation_author=Isabelle Rombouts;,citation_author=Nick Dillen;,citation_author=Rune Lagaisse;,citation_author=Jonas Mortelmans;,citation_author=Anouk Ollevier;,citation_author=Michiel Perneel;,citation_author=Klaas Deneudt;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_fulltext_html_url=https://www.jstor.org/stable/27217329;,citation_issue=4;,citation_issn=10428275, 2377617X;,citation_volume=34;,citation_journal_title=Oceanography;,citation_publisher=Oceanography Society;">
+<meta name="citation_reference" content="citation_title=Plankton;,citation_abstract=Plankton comprises unicellular plants ? phytoplankton ? and generally small (millimetres or less) animals ? zooplankton ? that are adrift on the currents. Phytoplankton are responsible for about 45% of global annual primary production and are grazed by zooplankton, which in turn are suitably sized food items for predators including commercially important fish and great whales. Plankton are vital components of marine and freshwater water-column ecosystems. They also make major contributions to global biogeochemical cycling, and ameliorate atmospheric accumulation of carbon dioxide by ?pumping? carbon to the deep sea. The integrity of these roles is under threat from climate-related physiological impacts on individual organisms and on the wide-scale distribution of plankton communities.;,citation_author=Andrew S. Brierley;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_fulltext_html_url=https://doi.org/10.1016/j.cub.2017.02.045;,citation_issue=11;,citation_doi=10.1016/j.cub.2017.02.045;,citation_isbn=0960-9822;,citation_volume=27;,citation_journal_title=Current Biology;,citation_publisher=Elsevier;">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">The Effect of International Shipping on Ocean Nitrate Levels</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+        
+        <div class="quarto-title-meta">
+
+                <div>
+            <div class="quarto-title-meta-heading">Authors</div>
+            <div class="quarto-title-meta-contents">
+                        <p>Nathan Butler </p>
+                        <p>Jeffrey Smith </p>
+                      </div>
+          </div>
+                
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      </div>
+    </div>
+
+
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="project_code\readme-preview.html"><i class="bi bi-journal-code"></i>readme.md</a></li></ul></div></nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+  
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>This study examines how major shipping lanes affect the level of nitrate in the water and the effect this has on the phytoplankton levels in the surrounding area. We used data joined by longitude and latitude between the World Ocean Database and shipping density information from the World Bank Group to analyze the relationship between nitrate released from ships and the levels of phytoplankton in the surrounding ocean. We use statistical methods to show whether areas with higher shipping density are significantly different from areas with lower shipping density. In doing so, we found potential small correlation between shipping density and nitrate, but greater correlation between nitrate and coordinate location. These findings suggest that while international shipping may be altering ocean chemistry slightly, there are other larger factors determining ocean nitrate concentration.</p>
+</section>
+<section id="background" class="level1">
+<h1>Background</h1>
+<p>According to the United Nations Conference on Trade and Development (UNCTAD), around 80% of international trade in goods by volume is done by the sea. This global cooperation is without cost, as the fuel burned by trade ships to transport goods adds a nontrivial amount of greenhouse gas to the atmosphere <span class="citation" data-cites="STALKER2021">(<a href="#ref-STALKER2021" role="doc-biblioref">Stalker 2021</a>)</span>. It has been estimated that around 3% of global carbon dioxide emissions, 8% of global sulfur dioxide emissions, and 15% of global nitrogen oxide emissions come from the combustion of fuel in ships <span class="citation" data-cites="IMO2020">(<a href="#ref-IMO2020" role="doc-biblioref">Jasper et al. 2020</a>})</span> <span class="citation" data-cites="SARBANHA2023">(<a href="#ref-SARBANHA2023" role="doc-biblioref">Sarbanha et al. 2023</a>)</span>. The objective to lower greenhouse gas emissions has been laid out by the International Maritime Organization (IMO) such that emissions will be reduced by at least 40% by 2030 and 50-70% by 2050 with respect to the 2008 levels <span class="citation" data-cites="WANG2025104689">(<a href="#ref-WANG2025104689" role="doc-biblioref">Wang and Iris 2025</a>)</span>. Cleaner fuels such as bio-LNG, bio-methanol, and ng-ammonia are already being tested and adopted <span class="citation" data-cites="WANG2025104689">(<a href="#ref-WANG2025104689" role="doc-biblioref">Wang and Iris 2025</a>)</span>. However, fossil fuels are still widely used, and the proportion of global emissions maritime activity is accountable for continues to climb <span class="citation" data-cites="catal12020138">(<a href="#ref-catal12020138" role="doc-biblioref">Feng et al. 2022</a>)</span> <span class="citation" data-cites="IMO2020">(<a href="#ref-IMO2020" role="doc-biblioref">Jasper et al. 2020</a>)</span>. The impact of carbon emissions in the atmosphere and ocean are already well documented. It is known that nitrogen oxide emissions are a precursor to ozone and that sulfur oxide emissions have a detrimental effect on human health <span class="citation" data-cites="EYRING20104735">(<a href="#ref-EYRING20104735" role="doc-biblioref">Eyring et al. 2010</a>)</span>. However, the effect of nitrogen oxides on the open ocean is less readily available.</p>
+<p>Plankton are small aquatic organisms, all of which have little to no swimming ability and move with the ocean currents <span class="citation" data-cites="BRIERLEY2017">(<a href="#ref-BRIERLEY2017" role="doc-biblioref">Brierley 2017</a>)</span>. One of the trophic modes of plankton is phytoplankton, composed of photosynthetic plants and bacteria. Phytoplankton play an important role in the ocean ecosystem, contributing to about half of the world’s primary production, i.e.&nbsp;converting inorganic compounds into organic compounds via a process such as photosynthesis <span class="citation" data-cites="PASCAL2021">(<a href="#ref-PASCAL2021" role="doc-biblioref">Hablützel et al. 2021</a>)</span>. This photosynthetic activity also has a great effect on carbon dioxide levels in the atmosphere. It has been estimated that around 40% of anthropogenic carbon dioxide dissolves into the ocean, and a single type of phytoplankton, diatom, is responsible for fixing a quarter of that carbon dioxide via photosynthesis each year <span class="citation" data-cites="BRIERLEY2017">(<a href="#ref-BRIERLEY2017" role="doc-biblioref">Brierley 2017</a>)</span>. Phytoplankton are highly sensitive to changes in their environment, such as temperature, nutrient availability, acidity, and even light intensity <span class="citation" data-cites="BRIERLEY2017">(<a href="#ref-BRIERLEY2017" role="doc-biblioref">Brierley 2017</a>)</span>. This makes phytoplankton a good proxy for measuring changes to the ocean environment.</p>
+<p>One of these nutrients utilized by phytoplankton is nitrate (a nitrogen oxide species). Elevated concentrations of nitrate in bodies of water can cause increases in the phytoplankton population <span class="citation" data-cites="HARRISON1988">(<a href="#ref-HARRISON1988" role="doc-biblioref">Harrison and Wood 1988</a>)</span> <span class="citation" data-cites="DOMINGUES2011">(<a href="#ref-DOMINGUES2011" role="doc-biblioref">Domingues et al. 2011</a>)</span>. Extreme cases of planktonic growth cause a phenomenon called algal blooms. The vast amount of plankton from algal blooms remove all the oxygen from the water, creating what are called hypoxic zones, which suffocate all marine life in the area and damage the ecosystem. The source of this nitrogen has been shown to be from fertilizer on many occasions <span class="citation" data-cites="deutsch2006assessing">(<a href="#ref-deutsch2006assessing" role="doc-biblioref">Deutsch, Kahle, and Voss 2006</a>)</span> <span class="citation" data-cites="puckett1995identifying">(<a href="#ref-puckett1995identifying" role="doc-biblioref">Puckett 1995</a>)</span> <span class="citation" data-cites="zhang2014tracing">(<a href="#ref-zhang2014tracing" role="doc-biblioref">Zhang et al. 2014</a>)</span>. Whether or not the nitrogen oxide emissions from ship exhaust have any effect on nitrate and plankton levels in the open waters of the ocean has not yet been documented.</p>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>Nitrate concentrations and some plankton values were obtained from the World Ocean Database (WOD). The data set was selected through the WOD query selector and CSV files were made available for download. The files from WOD were formatted in the following manner: each set of observations were included under a list of metadata including CAST number (a unique identifier for that set of observations), latitude, longitude, year, month, day, and more. A Python script was written to parse through these CSV files and extract all the observations as well as the above metadata. Besides the metadata, also included with the nitrate data was a value for nitrate concentration, the unit for said concentration (being micro molality, or μmol/kg), the depth of said observed nitrate concentration, the units for the depth (m), the uncertainty for the depth, and the units for that uncertainty (m). In addition to the metadata, the plankton data included a plankton value, a unit for that plankton value (e.g.&nbsp;#/m3), a measurement type (taxon dry mass, taxon wet mass, displacement, etc.) a WOD plankton grouping code that that specifies taxon and trophic mode (e.g.&nbsp;200000 values are phytoplankton, 400000 are zooplankton, etc.), and the genus for the observed plankton. The output of the Python script was a combined CSV file containing both nitrate and plankton data. This CSV was imported to a local Postgres database before being split into separate tables and cleaned to remove erroneous values before being uploaded to an online Postgres database hosted on Railway using DuckDB.</p>
+<p>Shipping density data was downloaded from the World Bank Group. This data consisted of a high resolution TIFF image, with each pixel representing shipping activity over a 0.005 by 0.005 degree grid, which equates to around a 500m by 500m square near the equator. Due to the large number of pixels in this image, it was not feasible to extract every pixel value from this image. Instead, latitude and longitude coordinates were taken from the observations from the World Ocean Database containing nitrate and plankton levels, and a Python script was run to obtain the pixel value at each location. Due to limitations in satellite imaging, data for above 85° north and -85° south was not available. This table was then uploaded to the online Postgres database on Railway using DuckDB.</p>
+<p>Chlorophyll a concentration data was downloaded from NASA’s OceanColor database using a programmatic query to the OceanData API. Specifically, the request targeted Aqua MODIS Level 3 chlorophyll a (otherwise known as a-chlorophyll) data, monthly composite, at a 9 km resolution, spanning from July 2002 to March 2025. As chlorophyll a is the form of chlorophyll used in photosynthesis, chlorophyll a levels can be used as a proxy for phytoplankton health and abundance. The raw .nc files were processed using xarray and pandas in Python to extract spatially gridded chlorophyll a values along with the corresponding latitude, longitude, year, and month. For each time step, the grid was averaged at a 0.01 degrees resolution to reduce data size. Final data was saved to year-specific .csv files for easy integration into downstream analysis pipelines and uploaded to a PostgreSQL database for access by mapping and modeling workflows. The chlorophyll a data was cleaned to remove extreme outliers and negative values (which are physically implausible). Data north of 85° and south of -85° latitude are missing due to satellite orbital limits and coverage. This table was uploaded to the online Postgres database on Railway.</p>
+<p>In Railway, the data is contained in the following schema, as shown below in the entity relationship diagram. The data from WOD is stored in the tables <code>nitrate</code> and <code>plankton</code>, which are both keyed to tables <code>coords</code>, <code>time</code>, <code>casts</code>, and <code>units</code>. In addition, the <code>plankton</code> table is also keyed to the <code>measurement</code>, <code>wod_pgc</code> (WOD plankton grouping code), and <code>its_tsn</code> (genus) tables. The shipping density data from the World Bank Group was placed in the <code>denseboats</code> table and is keyed to the <code>coords</code> table. Finally, the data from NASA’s OceanColor database is stored in the <code>chloro-a</code> table and is keyed to the <code>coords</code> and <code>time</code> table.</p>
+<p><a href="capstone-erd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="capstone-erd.png" class="img-fluid rounded z-depth-1" data-fig-cap="Entity Relationship Diagram" alt="Elbow plot"></a></p>
+</section>
+<section id="analysis" class="level1">
+<h1>Analysis</h1>
+<p>Preliminary association (chi-square test). Before clustering, we asked a simple question: are nitrate levels independent of shipping intensity when both are binned? Using the full dataset, shipping density and nitrate were each split into three tertiles (below the 33rd percentile = “Low,” 33rd–66th = “Average,” above the 66th = “High”). We then built a contingency table of shipping category by nitrate category and ran Pearson’s chi-square test of independence. The table (Figure 0) shows clear deviations from independence; the test statistic is χ² ≈ 46,579 with 2 degrees of freedom and p &lt; 0.001, so we reject the null of no association. Given the very large sample, the related Cramér’s V is modest (≈ 0.083). In other words, there is an association, but it is small; this motivates the more detailed, context-aware work that follows.</p>
+<div class="table" data-caption="Figure 0. Contingency table of shipping density category (columns) by nitrate category (rows), using tertiles.">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Average(Shipping)</th>
+<th>High(Shipping)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low(Nitrate)</td>
+<td>1,373,201</td>
+<td>866,064</td>
+</tr>
+<tr class="even">
+<td>Average(Nitrate)</td>
+<td>1,507,337</td>
+<td>741,862</td>
+</tr>
+<tr class="odd">
+<td>High(Nitrate)</td>
+<td>1,637,656</td>
+<td>674,536</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The goal of clustering is to split the study region into regional groups that make sense for both location and environment. That way, later comparisons are “like with like,” instead of mixing very different ocean settings. We cluster on six variables latitude, longitude, nitrate, distance to the nearest coast (km), chlorophyll-a, and shipping density after standardizing each to z-scores so differences in units and variance don’t let any one feature dominate the Euclidean distance that K-means uses. A small share of rows had missing inputs (often chlorophyll-a at high latitudes); to avoid dropping them, we imputed zeros and then checked plots and maps to make sure this did not create fake separation. Because latitude and longitude are included, the clusters should be read as place and environment groups, not purely chemical groups. This choice makes maps easy to read, but we are careful with casual language later.</p>
+<p>We chose the number of clusters by looking for the elbow in the within-cluster sum of squares for k = 2–9. The curve falls quickly through k=4 and then flattens; the elbow is around five. Figure 1 shows this and marks k=5 with a dashed line. Five clusters avoid both extremes: too few would lump shelves, lanes, and gyres; too many would split coherent regions into tiny pieces. With k set to five, we fit K-means and assign the labels back to each observation for mapping and analysis.</p>
+<p><a href="best%20elbow%20with%20cap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="best%20elbow%20with%20cap.png" class="img-fluid rounded z-depth-1" data-fig-cap="Figure(1): We use the Kneed library to automatically find the elbow point in the inertia plot. The best k is determined to be 5." alt="Elbow plot with optimal cluster count"></a></p>
+<p>Figures 2 and 3 show the spatial structure at two levels. Figure 2 plots all clustered observations in the Atlantic bounding box, colored by label. The narrow streaks across the North Atlantic appear because of how the shipping data were joined to the nitrate data; the nitrate sampling follows that pattern, so when merged, the lines show up. Because overlap can hide boundaries on one composite map, Figure 3 splits the view into five small panels, one per cluster. The footprints then become clear: a shelf group around the UK/Ireland; a broad subtropical belt from the Caribbean to West Africa; a coastal group along the Iberian/Portuguese margins and Bay of Biscay with extensions toward the Channel; a trans-Atlantic corridor around 40–55° N; and a</p>
+<p><a href="best%20cluster%20with%20thing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="best%20cluster%20with%20thing.png" class="img-fluid rounded z-depth-1" data-fig-cap="Figure(2): Clustered Observation Points within the Atlantic bounding box showing all 5 clusters 0–4 separated by color." alt="Clustered observation points map"></a></p>
+<p><a href="mapped%20sepeerelty.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="mapped%20sepeerelty.png" class="img-fluid rounded z-depth-1" data-fig-cap="Figure(3): Shows each cluster separated to make it easier to see where each cluster is localized." alt="Separated cluster maps"></a></p>
+<p>The distribution of shipping across groups confirms that the algorithm is separating meaningfully different environments, not just carving up space. Figure 4 shows boxplots of shipping density by cluster. The channel node and Iberian-coast group have the highest centers and widest spreads, consistent with busy port approaches and coastal arcs. The trans-Atlantic lane group has a spiky distribution of many near zero cells with very high values along the routes which appear as outliers. The shelf and subtropical groups are mostly low-traffic, though the shelf has occasional spikes near passages. These contrasts justify using the cluster labels as groups for the statistics that follow.</p>
+<p><a href="shipping%20density%20by%20cluster.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="shipping%20density%20by%20cluster.png" class="img-fluid rounded z-depth-1" data-fig-cap="Figure(4): Boxplot of shipping_density by Cluster." alt="Boxplot showing shipping density distributions per cluster"></a></p>
+<p>Having stratified the data, we examined whether shipping density is associated with nitrate within each cluster. For each cluster we fit a bivariate ordinary least squares regression of nitrate on log(1 + shipping density), adding a constant term and estimating HC3 robust standard errors to account for heteroskedastic. The log transform compresses extreme density values and renders the slope interpretable as the expected change in nitrate for a one unit change in the transformed density. To aid legibility on the plots, we sampled at most 150,000 points per cluster for the scatter layer while fitting the line to the full set of available observations. Figure 5 (shown in the Results section) displays the five panels with the fitted lines superimposed. The method is intentionally simple: because the clusters already align observations by geography, coastal proximity, and broad productivity context, a within‑cluster trend provides a clean first check for association without yet attributing causality. Two notes help with interpretation. First, including coordinates ensures spatial coherence but can bias clustering toward geography; standardizing helps, and the maps make the trade-off clear. Second, zero imputation preserves rows but can pull distances toward the origin when data are sparse; distribution checks and the within-cluster approach help reveal artifacts, and we plan robustness checks (e.g., silhouette/Davies–Bouldin in an appendix; median regression and light winsorization) to confirm stability. We therefore treat results here as descriptive and conditional on the group.</p>
+<p>Having established a linear baseline, we also fit cluster‑specific random forests to allow for non‑linear and interaction effects between shipping, productivity, distance from land, and geography. Within each cluster we trained a RandomForestRegressor using the feature set log shipping density, chlorophyll‑a, distance to coast, latitude, longitude. Performance was summarized by five‑fold cross‑validated R² and interpretation relied on two complementary diagnostics: permutation importance (mean drop in R² when a feature is shuffled) and partial dependence of nitrate on log‑shipping holding other features at their empirical distribution. Figures 6 and 7 (presented in the Results section) summarize these diagnostics for all five clusters. Because spatial autocorrelation can inflate nominal cross‑validation in geophysical data, we treat R² values as descriptive of in‑sample predictability rather than as out‑of‑sample guarantees; our focus is on the relative importance of features and the shape of the shipping nitrate relationship by cluster.</p>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<p>The five cluster solution forms groups that are spatially clear and ecologically reasonable, and the figures support this. On the composite map (Figure 2) the subtropical belt appears as a broad band across low to mid latitudes, where oligotrophic conditions and low chronic traffic are common. The channel node in the northeast Atlantic is small in area but very dense, reflecting several major approaches. The Iberian coastal group connects that node to the Western European coast and matches productive waters affected by upwelling and rivers. The trans-Atlantic lanes form long, narrow arcs, which explains the spiky shipping distribution in Figure 4. Seen separately in Figure 3, each panel shows the groups are not arbitrary: they match major spatial patterns one would expect from traffic, productivity, and distance to land.</p>
+<p>The boxplots in Figure 4 quantify these visual impressions. Median shipping density is lowest in the subtropical belt and highest in the Iberian coastal and channel‑node clusters, with the channel clusters showing a large interquartile range and high upper whiskers indicative of strongly right‑skewed traffic. The trans‑Atlantic lanes show low medians but a long right tail, again reflecting the geometry of corridor traffic. The shelf cluster sits between these cases, predominantly quiet but punctuated by spikes near passages and port approaches. By presenting these distributions alongside the maps we substantiate that the clusters organize the data by meaningful differences in human activity rather than by geography alone.</p>
+<p>Within these groups, the regression panels in Figure 5 reveal weak but interpretable associations between shipping density and nitrate. In the Iberian coastal (cluster 2) the fitted slope is positive and comparatively large: an increase of one unit in log(1 + shipping density) is associated with an average increase of roughly 27.4 units of nitrate. Although the model explains only about thirteen percent of that clusters variance, this is the clearest positive relationship in the analysis and is consistent with a setting where coastal inputs and productivity are higher and where traffic is both sustained and variable. The shelf cluster around the United Kingdom and Ireland (cluster 0) shows a shallow positive slope on the order of 0.36 with an R² around 0.05; the cloud of points is dominated by low nitrate values with a modest upward tilt across the transformed density range. The trans‑Atlantic lane (cluster 3) yields an even smaller positive slope, approximately 0.17, and an R² near 0.02. Here the mixture of many near‑zero cells with intermittent high‑traffic streaks produces a thin band of points around the fitted line and very limited explanatory power.</p>
+<p><a href="best%20linear%20per%20cluster%20with%20better%20cap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="best%20linear%20per%20cluster%20with%20better%20cap.png" class="img-fluid rounded z-depth-1" data-fig-cap="Figure(5): Nitrate vs. log(1+shipping density) by cluster with OLS (HC3) trend lines. Associations are weak overall; the clearest positive slope is in Cluster 2." alt="Scatter plots and linear regression fits per cluster"></a></p>
+<p>Two clusters exhibit negative slopes. In the channel‑node (cluster 4) the fitted line is downward‑sloping with a magnitude of roughly −4.83 and an R² around 0.11. The panel contains extreme nitrate values at low‑to‑moderate traffic and a compressed band at high traffic; because ordinary least squares is sensitive to tail behavior, this pattern likely contributes to the negative coefficient. We therefore interpret the sign cautiously and plan robustness checks using median regression or a lightly winsorized OLS fit to evaluate sensitivity to outliers. In the subtropical open ocean (cluster 1), where nitrate is characteristically scarce, the fitted slope is slightly negative (about −0.045) and the model explains effectively none of the variation. This is unsurprising given the low variance of nitrate in oligotrophic waters and suggests that shipping density, by itself, does not capture the processes that drive nitrate variability in that cluster.</p>
+<p>Together, Figures 1–5 tell a coherent story from model choice to interpretation. The elbow plot supports five clusters; the maps show why the solution makes sense; the shipping distributions verify that groups differ in a way that matters; and the within-group lines show that the direction and size of shipping–nitrate links depend on setting and are usually modest. This fits an ocean system where nitrate depends on many drivers, circulation, seasonality, land inputs, productivity with shipping playing a role in some places but rarely dominating. Ethically, that means unsupervised clusters and simple bivariate lines are tools for exploration, not causal proof. We therefore state modeling choices clearly, pair claims with figures the reader can check, and limit conclusions to what the evidence supports.</p>
+<p>The random‑forest diagnostics reinforce and nuance the linear findings. Cross‑validated R² differs by regime: predictability is highest in the subtropical belt and the trans‑Atlantic lanes (titles in Figure 6 report values near 0.98 and 0.99, respectively), moderate on the shelf and Iberian coast (around 0.57 and 0.63), and lowest in the channel‑node (about 0.52). This pattern is consistent with the maps: the subtropical and corridor regimes are geographically tight and relatively homogeneous once latitude/longitude are available, whereas the channel‑node mixes multiple local processes in a small area.</p>
+<p><a href="permuatation%20importance.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="permuatation%20importance.png" class="img-fluid rounded z-depth-1" data-fig-cap="Figure(6): Permutation importance by cluster (RF): spatial features longitude, latitude, and distance from land dominate; shipping density is secondary." alt="Random forest permutation importance plots"></a></p>
+<p>Permutation importance (Figure 6) shows a clear hierarchy across clusters. Longitude, latitude, and distance from land dominate predictive power in every regime, underlining the extent to which nitrate varies with geography and coastal proximity. Shipping density contributes second‑order information non negligible but well below the spatial terms and chlorophyll‑a is comparatively minor in these fits. The relative contribution of shipping is largest in the Iberian coastal and channel‑node regimes and smallest in the subtropical belt, which is consistent with the very low nitrate variance observed there. Because importance is defined as the drop in cross validated R² when a feature is permuted, these bars quantify the incremental value of shipping conditional on geography and distance to coast.</p>
+<p><a href="pdp%20nitrate%20vs%20log%20shipping.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="pdp%20nitrate%20vs%20log%20shipping.png" class="img-fluid rounded z-depth-1" data-fig-cap="Figure(7): Mild positive trend in Cluster 0 and Cluster 3, near-flat in Cluster 1, sharp rise at high values in Cluster 2, and non-monotonic in Cluster 4." alt="Partial dependence plots by cluster"></a></p>
+<p>Partial‑dependence curves (Figure 7) describe how predicted nitrate changes with log‑shipping within each regime after marginalizing over other features. The shelf and trans Atlantic lane regimes exhibit gently increasing relationships: nitrate rises slightly as log‑shipping increases across the observed range. The subtropical belt is essentially flat, confirming the lack of explanatory power seen in the OLS panel. The Iberian coastal regime shows a pronounced rise at the upper end of log‑shipping, indicating that the association strengthens only at the highest densities; the tick marks on the x‑axis make clear that data are sparser in this extreme, so we interpret the slope there with caution. The channel‑node displays a non‑monotonic pattern declining from low to mid values and then turning upward near the extreme right tail mirroring the mixture of very high and very low nitrate values seen in the scatter. Taken together, the forests replicate the directional signals from the linear fits (positive in clusters 0, 2, and 3; flat in 1; complex in 4) while revealing non‑linearities that an OLS slope averages away.</p>
+<p>Method wise, Figures 5–7 work well together. The OLS slopes give clear effect sizes on the transformed scale and robust intervals; the forests show that even after strong spatial structure is accounted for, shipping still adds some predictive signal and that the marginal effect can be thresholded or non monotonic depending on setting. This supports our main point: the shipping–nitrate link is context dependent and, when present, small compared with geography.</p>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<p>While some of the results above suggested possible statistical significance, it is hard to say with certainty whether these results are true, or if they are a product of the variables analyzed. The ocean is a complex system full of moving parts, and many additional variables that were not included have the potential to affect the results of our analysis. Ocean currents, global and local weather patterns, and the lack of uniformity in the chemical composition of the water can affect how and where the nitrogen oxide emissions come into contact and dissolve into the oceans. This would then in turn potentially have an effect on phytoplankton levels. The human impact is also complex, and distilling it down to shipping density and distance from the coastline may be a gross oversimplification. While international shipping accounts for a sizable amount of nitrogen oxide emissions into the atmosphere, it is not the only source. One key limitation of this study is the mismatch between the temporal and spatial resolution of our datasets. Shipping density was derived from aggregated raster imagery, while nitrate measurements are point-based and vary by collection date and depth, which may obscure short-term or fine-scale effects. Additionally, regression results showed low explanatory power, indicating that other factors such as ocean currents, natural upwelling, or atmospheric deposition likely play major roles in nitrate variability. Finally, the best predictor of nitrate concentration being latitude and longitude as a result of random forest feature importance is indicative of our current data missing the main reasons for nitrate variation in the ocean.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>In this study we fail to provide solid evidence that international shipping activity is consistently associated with elevated nitrate levels in the ocean. Our combinations of clustering, chi-square, random forest, and linear regression analyses revealed that while there may be some correlation between shipping density and nitrate levels, shipping density is not the dominant predictor in terms of understanding the nitrate concentration in the ocean.</p>
+<p>Future work could include utilizing sea level atmospheric concentrations of nitrogen oxides to better understand the rate of dissolution. Higher granular temporal and spatial data of the positions of trade ships can be used to show potential changes in ocean chemistry and the resulting impact on marine life.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-BRIERLEY2017" class="csl-entry" role="listitem">
+Brierley, Andrew S. 2017. <span>“Plankton.”</span> Doi: 10.1016/j.cub.2017.02.045. <em>Current Biology</em> 27 (11): R478–83. <a href="https://doi.org/10.1016/j.cub.2017.02.045">https://doi.org/10.1016/j.cub.2017.02.045</a>.
+</div>
+<div id="ref-deutsch2006assessing" class="csl-entry" role="listitem">
+Deutsch, Barbara, Petra Kahle, and Maren Voss. 2006. <span>“Assessing the Source of Nitrate Pollution in Water Using Stable n and o Isotopes.”</span> <em>Agronomy for Sustainable Development</em> 26 (4): 263–67.
+</div>
+<div id="ref-DOMINGUES2011" class="csl-entry" role="listitem">
+Domingues, Rita B., Ana B. Barbosa, Ulrich Sommer, and Helena M. Galvão. 2011. <span>“Ammonium, Nitrate and Phytoplankton Interactions in a Freshwater Tidal Estuarine Zone: Potential Effects of Cultural Eutrophication.”</span> <em>Aquatic Sciences</em> 73 (3): 331–43. <a href="https://doi.org/10.1007/s00027-011-0180-0">https://doi.org/10.1007/s00027-011-0180-0</a>.
+</div>
+<div id="ref-EYRING20104735" class="csl-entry" role="listitem">
+Eyring, Veronika, Ivar S. A. Isaksen, Terje Berntsen, William J. Collins, James J. Corbett, Oyvind Endresen, Roy G. Grainger, Jana Moldanova, Hans Schlager, and David S. Stevenson. 2010. <span>“Transport Impacts on Atmosphere and Climate: Shipping.”</span> <em>Atmospheric Environment</em> 44 (37): 4735–71. https://doi.org/<a href="https://doi.org/10.1016/j.atmosenv.2009.04.059">https://doi.org/10.1016/j.atmosenv.2009.04.059</a>.
+</div>
+<div id="ref-catal12020138" class="csl-entry" role="listitem">
+Feng, Shuo, Shirui Xu, Peng Yuan, Yuye Xing, Boxiong Shen, Zhaoming Li, Chenguang Zhang, et al. 2022. <span>“The Impact of Alternative Fuels on Ship Engine Emissions and Aftertreatment Systems: A Review.”</span> <em>Catalysts</em> 12 (2). <a href="https://doi.org/10.3390/catal12020138">https://doi.org/10.3390/catal12020138</a>.
+</div>
+<div id="ref-PASCAL2021" class="csl-entry" role="listitem">
+Hablützel, Pascal I., Isabelle Rombouts, Nick Dillen, Rune Lagaisse, Jonas Mortelmans, Anouk Ollevier, Michiel Perneel, and Klaas Deneudt. 2021. <span>“Exploring New Technologies for Plankton Observations and Monitoring of Ocean Health.”</span> <em>Oceanography</em> 34 (4): pp. 20–25. <a href="https://www.jstor.org/stable/27217329">https://www.jstor.org/stable/27217329</a>.
+</div>
+<div id="ref-HARRISON1988" class="csl-entry" role="listitem">
+Harrison, W. G., and Laura J. E. Wood. 1988. <span>“Inorganic Nitrogen Uptake by Marine Picoplankton: Evidence for Size Partitioning.”</span> <em>Limnology and Oceanography</em> 33 (3): 468–75. https://doi.org/<a href="https://doi.org/10.4319/lo.1988.33.3.0468">https://doi.org/10.4319/lo.1988.33.3.0468</a>.
+</div>
+<div id="ref-IMO2020" class="csl-entry" role="listitem">
+Jasper, Shinichi, F. H., S Zhang, P. Pereda, B. Comer, E. Hauerhof, W. Schim van der Loeff, T. Smith, et al. 2020. <span>“4th IMO GHG Study.”</span>
+</div>
+<div id="ref-puckett1995identifying" class="csl-entry" role="listitem">
+Puckett, Larry J. 1995. <span>“Identifying the Major Sources of Nutrient Water Pollution.”</span> <em>Environmental Science &amp; Technology</em> 29 (9): 408A–414A.
+</div>
+<div id="ref-SARBANHA2023" class="csl-entry" role="listitem">
+Sarbanha, Ali-Akbar, Faı̈çal Larachi, Seyed-Mohammad Taghavi, Mareen Thiboutot-Rioux, Alexandre Boudreau, and Gabriel Dugas. 2023. <span>“Mitigation of Ship Emissions: Overview of Recent Trends.”</span> <em>Industrial &amp; Engineering Chemistry Research</em> 62 (4): 1707–24. <a href="https://doi.org/10.1021/acs.iecr.2c03621">https://doi.org/10.1021/acs.iecr.2c03621</a>.
+</div>
+<div id="ref-STALKER2021" class="csl-entry" role="listitem">
+Stalker, P. E. A. 2021. <span>“Review of Maritime Transport.”</span> <a href="https://doi.org/10.18356/9789210000970">https://doi.org/10.18356/9789210000970</a>.
+</div>
+<div id="ref-WANG2025104689" class="csl-entry" role="listitem">
+Wang, Yadong, and Çağatay Iris. 2025. <span>“Transition to Near-Zero Emission Shipping Fleet Powered by Alternative Fuels Under Uncertainty.”</span> <em>Transportation Research Part D: Transport and Environment</em> 142: 104689. https://doi.org/<a href="https://doi.org/10.1016/j.trd.2025.104689">https://doi.org/10.1016/j.trd.2025.104689</a>.
+</div>
+<div id="ref-zhang2014tracing" class="csl-entry" role="listitem">
+Zhang, Yan, Fadong Li, Qiuying Zhang, Jing Li, and Qiang Liu. 2014. <span>“Tracing Nitrate Pollution Sources and Transformation in Surface-and Ground-Waters Using Environmental Isotopes.”</span> <em>Science of the Total Environment</em> 490: 213–22.
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>
